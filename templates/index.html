@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+  <div id="box">
+  <div id="container">
+    <h1>Password Generator</h1>
+  
+    <form action="/generate" method="post">
+      <label for="name-input">Enter your name:</label>
+      <input type="text" id="name-input" name="name-input" placeholder="Your name" required>
+      <button type="submit">Generate Password</button>
+    </form><br>
+  
+    <div id="password-result">
+      {% if generated_password %}
+        <p>Generated password for {{ input_name }}: {{ generated_password }}</p>
+      {% endif %}
+    </div>
+  </div>
+  </div>
+</body>
+</html>
